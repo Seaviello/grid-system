@@ -1,9 +1,15 @@
-import React, { ReactComponentElement, ReactNode, ReactElement } from "react";
-import { RouteComponentProps, Route, Switch, Link } from "react-router-dom";
+import React, { JSXElementConstructor } from "react";
+import {
+  RouteComponentProps,
+  Route,
+  Switch,
+  Link,
+  Redirect
+} from "react-router-dom";
 import styled from "styled-components";
 import { Bootstrapy } from "./Bootstrapy";
 enum ExampleType {
-  BOOTSTRAPY = "bootstrapy",
+  BOOTSTRAPY = "bootstrap-like",
   AREAS = "areas"
 }
 
@@ -29,10 +35,12 @@ export const Examples = ({ match, history }: ExamplesProps) => {
       </ul>
       <Switch>
         {Object.values(ExampleType).map(type => (
-          <Route path={`${match.path}${type}`}>
-            {ExampleTypeToExample[type]}
-          </Route>
+          <Route
+            path={`${match.path}${type}`}
+            component={ExampleTypeToExample[type]}
+          />
         ))}
+        <Redirect to={`${match.path}${ExampleType.BOOTSTRAPY}`} />
       </Switch>
     </StyledExamples>
   );
@@ -45,6 +53,7 @@ const StyledExamples = styled.div`
   ul {
     padding: 0;
     margin: 0;
+    margin-bottom: 16px;
     list-style: none;
     display: flex;
   }
