@@ -1,7 +1,7 @@
 import * as React from "react";
 import "./styles.css";
 import styled from "styled-components";
-import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Link, Switch, Route } from "react-router-dom";
 import { Examples } from "./examples";
 import { Creator } from "./creator";
 
@@ -23,12 +23,8 @@ export default function App() {
 
         <Main>
           <Switch>
-            <Route path="/creator">
-              <Creator />
-            </Route>
-            <Route path="/">
-              <Examples />
-            </Route>
+            <Route path="/creator" component={Creator} />
+            <Route path="/" component={Examples} />
           </Switch>
         </Main>
       </Content>
@@ -60,6 +56,18 @@ const Navigation = styled.nav`
     margin: 0;
     padding: 0;
     padding-left: 16px;
+  }
+
+  li {
+    background-color: #003388;
+    border-radius: 4px;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    a {
+      color: white;
+      text-decoration: none;
+    }
   }
 
   li + li {
