@@ -1,17 +1,15 @@
 {
-  "name": "react-typescript",
+  "name": "grid-system",
   "version": "1.0.0",
-  "description": "React and TypeScript example starter project",
-  "keywords": [
-    "typescript",
-    "react",
-    "starter"
-  ],
+  "description": "",
+  "keywords": [],
   "main": "src/index.tsx",
   "dependencies": {
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-scripts": "3.3.0"
+    "react-router-dom": "5.2.0",
+    "react-scripts": "3.3.0",
+    "styled-components": "5.1.1"
   },
   "devDependencies": {
     "@types/react": "16.9.19",
@@ -25,9 +23,8 @@
     "eject": "react-scripts eject"
   },
   "browserslist": [
-    ">0.2%",
+    ">1%",
     "not dead",
-    "not ie <= 11",
     "not op_mini all"
   ]
 }

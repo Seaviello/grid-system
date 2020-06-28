@@ -1,4 +1,17 @@
-.App {
+html,
+body {
   font-family: sans-serif;
-  text-align: center;
+  margin: 0;
+  padding: 0;
+  background-color: #e0e0e0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin: 0;
+  padding: 0;
 }
