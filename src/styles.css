@@ -15,3 +15,9 @@ p {
   margin: 0;
   padding: 0;
 }
+a,
+a:visited,
+a:active {
+  color: #003388;
+  text-decoration: none;
+}

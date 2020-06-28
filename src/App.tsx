@@ -1,9 +1,16 @@
 import * as React from "react";
 import "./styles.css";
 import styled from "styled-components";
-import { HashRouter as Router, Link, Switch, Route } from "react-router-dom";
+import {
+  HashRouter as Router,
+  NavLink,
+  Switch,
+  Route,
+  Redirect
+} from "react-router-dom";
 import { Examples } from "./examples";
 import { Creator } from "./creator";
+import { Colors } from "./components/stylesheet";
 
 export default function App() {
   return (
@@ -13,10 +20,14 @@ export default function App() {
           <h1>Grid system overview</h1>
           <ul>
             <li>
-              <Link to="/">Examples</Link>
+              <NavLink to="/examples" activeClass="active">
+                Examples
+              </NavLink>
             </li>
             <li>
-              <Link to="/creator">Creator</Link>
+              <NavLink to="/creator" activeClass="active">
+                Creator
+              </NavLink>
             </li>
           </ul>
         </Navigation>
@@ -24,7 +35,8 @@ export default function App() {
         <Main>
           <Switch>
             <Route path="/creator" component={Creator} />
-            <Route path="/" component={Examples} />
+            <Route path="/examples" component={Examples} />
+            <Redirect to="/examples" />
           </Switch>
         </Main>
       </Content>
@@ -58,18 +70,18 @@ const Navigation = styled.nav`
     padding-left: 16px;
   }
 
-  li {
-    background-color: #003388;
+  a {
     border-radius: 4px;
     color: white;
     border: none;
     padding: 8px 16px;
-    a {
-      color: white;
-      text-decoration: none;
-    }
+    background-color: ${Colors.blue};
+    color: white;
+    text-decoration: none;
   }
-
+  a.active {
+    background-color: ${Colors.steelBlue};
+  }
   li + li {
     margin-left: 20px;
   }
